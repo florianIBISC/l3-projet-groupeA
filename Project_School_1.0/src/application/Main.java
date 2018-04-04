@@ -22,6 +22,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		System.out.println("Oh yeah je suis Vignesh !!");
+		System.out.println("Oh yeah je suis Vignesh au grand coeur !!");
+
 	}
 }
