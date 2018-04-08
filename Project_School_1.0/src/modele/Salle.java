@@ -4,6 +4,8 @@ public class Salle {
 	private int idSalle;
 	private int capacite;
 	
+	//Planning planning;
+	
 	
 	
 	public int getIdSalle() {
