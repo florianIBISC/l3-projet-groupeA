@@ -49,6 +49,7 @@ public class ControllerAuthentification implements IControllerAuthentification{
 		return false;
 	}
 
+	//Une erreur une tentative en moins
 	@Override
 	public void decrementerNbrTentative() {
 		// TODO Auto-generated method stub
