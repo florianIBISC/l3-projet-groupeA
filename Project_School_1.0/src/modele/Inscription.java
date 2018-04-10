@@ -12,10 +12,10 @@ public class Inscription {
 	private Groupe[] groupe;
 
 	//Pareil type string ou énuméré ?
-	private String statut;
+	private boolean inscris;
 
 	public Inscription(int idInscription, LocalDate dateInscription, LocalDate dateAbandon, Matiere[] matiere,
-			SessionSchool[] sessionSchool, Groupe[] groupe, String statut) {
+			SessionSchool[] sessionSchool, Groupe[] groupe, boolean inscris) {
 		super();
 		this.idInscription = idInscription;
 		this.dateInscription = dateInscription;
@@ -23,7 +23,7 @@ public class Inscription {
 		this.matiere = matiere;
 		this.sessionSchool = sessionSchool;
 		this.groupe = groupe;
-		this.statut = statut;
+		this.inscris = inscris;
 	}
 
 	public int getIdInscription() {
@@ -74,12 +74,12 @@ public class Inscription {
 		this.groupe = groupe;
 	}
 
-	public String getStatut() {
-		return statut;
+	public boolean getInscris() {
+		return inscris;
 	}
 
-	public void setStatut(String statut) {
-		this.statut = statut;
+	public void setInscris(boolean inscris) {
+		this.inscris = inscris;
 	}
 	
 	
