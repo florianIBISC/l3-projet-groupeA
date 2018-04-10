@@ -9,7 +9,9 @@ public class ControllerGeneral {
 
 	public ControllerGeneral(ArrayList<Compte> compte) {
 		super();
-		this.compte = compte;
+		try {
+			
+		}
 	}
 	
 	
