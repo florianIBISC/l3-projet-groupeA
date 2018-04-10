@@ -6,6 +6,6 @@ public interface IControllerAuthentification {
 	public boolean compte_bloque();
 	
 	//Décremente le nombre de tentative possible de déverouillage du compte
-	public int nbrTentative();
+	public void decrementerNbrTentative();
 	
 }

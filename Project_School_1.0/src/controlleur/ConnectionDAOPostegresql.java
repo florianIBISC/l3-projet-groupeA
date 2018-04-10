@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 
 public class ConnectionDAOPostegresql {
 
-	public Connection getConnection() {
+	public static Connection getConnection() {
 		try {
 			Class.forName("org.postgresql.Driver");
 
