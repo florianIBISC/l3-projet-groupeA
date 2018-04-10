@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import modele.Compte;
-import connexionBD.*;
+
 //Va récupérer toutes les données de la base de données pour les redistribuer
 //Aux autres classes controller
 public class ControllerGeneral {
@@ -17,7 +17,7 @@ public class ControllerGeneral {
 		try {
 			//Commençons par récupérer les données des comptes pour les authentifications
 			//On se connecte à notre BDD
-			Connection conn = connexionDAOPostegresql.getConnection();
+			Connection conn = ConnectionDAOPostegresql.getConnection();
 			
 			//On récupère les données de la BDD pour en faire des objets
 			PreparedStatement state = conn.prepareStatement("SELECT * FROM compte");
@@ -29,7 +29,7 @@ public class ControllerGeneral {
 			while(res.next()) {
 				//Compte(String login, int id, String mdp)
 				String login = res.getString("login");
-				int id = res.getInt("idCompte");
+				int id = res.getInt("id");
 				String mdp = res.getString("mdp");
 				Compte temp = new Compte(login,id,mdp);
 				this.compte.add(temp);

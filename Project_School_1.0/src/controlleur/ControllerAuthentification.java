@@ -2,7 +2,6 @@ package controlleur;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.ListIterator;
 
 import modele.Compte;
 
@@ -21,7 +20,7 @@ public class ControllerAuthentification implements IControllerAuthentification{
 
 	@Override
 	public boolean id_correct(String login) {
-		ListIterator<Compte>it = this.compte.listIterator();
+		Iterator<Compte>it = this.compte.iterator();
 		int i=0;
 		while(it.hasNext()) {
 			if(it.next().getLogin().equals(login)){
@@ -40,9 +39,10 @@ public class ControllerAuthentification implements IControllerAuthentification{
 		
 		return false;
 	}
-	
+
 	@Override
 	public boolean compte_bloque() {
+		// TODO Auto-generated method stub
 		if(this.compte.get(position).getNbr_tentative()<1)
 			return true;
 		decrementerNbrTentative();
@@ -52,6 +52,7 @@ public class ControllerAuthentification implements IControllerAuthentification{
 	//Une erreur une tentative en moins
 	@Override
 	public void decrementerNbrTentative() {
+		// TODO Auto-generated method stub
 		this.compte.get(position).setNbr_tentative(this.compte.get(position).getNbr_tentative()-1);
 	}
 	

@@ -6,7 +6,7 @@ public class Inscription {
 	private int idInscription;
 	private LocalDate dateInscription;
 	private LocalDate dateAbandon;
-	private Etudiant etudiantInscrit;
+	
 	private Matiere[] matiere;
 	private SessionSchool[] sessionSchool;
 	private Groupe[] groupe;
