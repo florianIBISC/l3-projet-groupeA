@@ -28,10 +28,10 @@ public class ControllerGeneral {
 			//On va récupérer tous les comptes de la base de données et les rentrer dans notre ArrayList
 			while(res.next()) {
 				//Compte(String login, int id, String mdp)
-				String id = res.getString("id");
+				String login = res.getString("login");
+				int id = res.getInt("id");
 				String mdp = res.getString("mdp");
-				int n = res.getInt("tentative");
-				Compte temp = new Compte(id,passwd,n);
+				Compte temp = new Compte(login,id,mdp);
 				this.compte.add(temp);
 			}
 			

@@ -54,6 +54,12 @@ public class Compte {
 	public static int getNbr_compte() {
 		return nbr_compte;
 	}
+	public int getNbr_tentative() {
+		return nbr_tentative;
+	}
+	public void setNbr_tentative(int nbr_tentative) {
+		this.nbr_tentative = nbr_tentative;
+	}
 	
 	
 	
