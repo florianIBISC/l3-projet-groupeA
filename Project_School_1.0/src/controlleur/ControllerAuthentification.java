@@ -1,8 +1,13 @@
 package controlleur;
 
+import java.util.ArrayList;
+
+import modele.Compte;
+
 public class ControllerAuthentification implements IControllerAuthentification{
 
 	private ArrayList<Compte> compte;
+	
 	@Override
 	public boolean id_correct(String id) {
 		// TODO Auto-generated method stub
