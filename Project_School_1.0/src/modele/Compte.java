@@ -58,7 +58,7 @@ public class Compte {
 		return nbr_tentative;
 	}
 	public void setNbr_tentative(int nbr_tentative) {
-		this.nbr_tentative = nbr_tentative;
+		this.nbr_tentative = (nbr_tentative>=0)? nbr_tentative:0;
 	}
 	
 	

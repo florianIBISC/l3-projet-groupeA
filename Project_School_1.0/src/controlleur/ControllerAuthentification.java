@@ -36,6 +36,7 @@ public class ControllerAuthentification implements IControllerAuthentification{
 	public boolean mdp_correct(String mdp) {
 		if(this.compte.get(position).getMdp().equals(mdp))
 			return true;
+		
 		return false;
 	}
 
@@ -44,13 +45,14 @@ public class ControllerAuthentification implements IControllerAuthentification{
 		// TODO Auto-generated method stub
 		if(this.compte.get(position).getNbr_tentative()<1)
 			return true;
+		decrementerNbrTentative();
 		return false;
 	}
 
 	@Override
-	public int nbrTentative() {
+	public void decrementerNbrTentative() {
 		// TODO Auto-generated method stub
-		return 0;
+		this.compte.get(position).setNbr_tentative(this.compte.get(position).getNbr_tentative()-1);
 	}
 	
 }
