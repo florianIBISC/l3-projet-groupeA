@@ -1,14 +1,15 @@
 package vue;
 
-import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 public class FenetreAuthentification{
 
@@ -37,13 +38,32 @@ public class FenetreAuthentification{
 		b.setLayoutX(218);
 		b.setLayoutY(149);
 		
+		Label l3 = new Label("Vous n'êtes pas encore inscrit ?");
+		l3.setLayoutX(220);
+		l3.setLayoutY(200);
+		l3.setTextFill(Color.RED);
+		l3.setCursor(Cursor.CLOSED_HAND);
+		l3.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            public void handle(MouseEvent event) {
+                // TODO Auto-generated method stub
+            	showOtherWindow();
+
+            }
+        });
+		
 		group.getChildren().add(l);
 		group.getChildren().add(tf);
 		group.getChildren().add(l2);
 		group.getChildren().add(pf);
 		group.getChildren().add(b);
+		group.getChildren().add(l3);
 
 		return scene;
 	}
 
+	
+	public static void showOtherWindow() {
+		System.out.println("Okok");
+	}
 }

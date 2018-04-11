@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import vue.FenetreAuthentification;
+import vue.InscriptionVue;
 
 
 public class Main extends Application {
@@ -16,7 +17,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());*/
 			
 			Group root = new Group();
-			Scene scene = FenetreAuthentification.showWindow(root);
+			Scene scene = InscriptionVue.showWindow(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
