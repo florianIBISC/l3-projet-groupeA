@@ -26,6 +26,7 @@ public class Main extends Application{
 			FenetreAuthentification fen= new FenetreAuthentification();
 			Scene scene = fen.showWindow();
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Authentification");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
