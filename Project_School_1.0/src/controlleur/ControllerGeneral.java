@@ -5,10 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import connexionBD.connexionDAOPostegresql;
 import modele.Compte;
-import connexionBD.*;
-//Va récupérer toutes les données de la base de données pour les redistribuer
-//Aux autres classes controller
+
 public class ControllerGeneral {
 	ArrayList<Compte> compte;
 

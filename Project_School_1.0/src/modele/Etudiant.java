@@ -29,5 +29,4 @@ public class Etudiant extends Individu{
 		this.groupe = groupe;
 	}
 	
-	
 }

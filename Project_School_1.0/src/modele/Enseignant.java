@@ -36,9 +36,4 @@ public class Enseignant extends Agent{
 		this.matiere = matiere;
 	}
 	
-	
-	
-	
-	
-	
 }

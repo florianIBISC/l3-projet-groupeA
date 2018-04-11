@@ -65,6 +65,4 @@ public class SessionSchool {
 		this.typeSession = typeSession;
 	}
 	
-	
-	
 }

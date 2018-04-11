@@ -65,6 +65,4 @@ public class Cours {
 		this.groupe = groupe;
 	}
 	
-	
-	
 }

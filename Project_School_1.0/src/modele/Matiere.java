@@ -31,5 +31,4 @@ public class Matiere {
 		this.nomMatiere = nomMatiere;
 	}
 	
-	
 }

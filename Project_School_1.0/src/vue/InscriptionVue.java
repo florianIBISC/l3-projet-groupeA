@@ -1,16 +1,16 @@
 package vue;
 
-import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 public class InscriptionVue {
 	
-	public static Scene showWindow(Group root) {
-		Scene scene = new Scene(root,600,400,Color.ALICEBLUE);
-		
+	public Scene showWindow(Group root) {
 		JFXTextField j1 = new JFXTextField("Nom");
 		j1.setLayoutX(133);j1.setLayoutY(92);
 		
@@ -34,9 +34,7 @@ public class InscriptionVue {
 		root.getChildren().add(j4);		root.getChildren().add(j5);
 		root.getChildren().add(j6);
 
-
-		return scene;
+		return null;
 		
 	}
-
 }

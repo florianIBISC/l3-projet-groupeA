@@ -1,21 +1,37 @@
 package vue;
 
-import javafx.event.EventHandler;
-import javafx.scene.Cursor;
-import javafx.scene.Group;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-
-public class FenetreAuthentification{
+import controlleur.ControllerAuthentification;;
 
 
-	public static Scene showWindow(Group group) {
-		Scene scene = new Scene(group,500,300,Color.ALICEBLUE);
+public class FenetreAuthentification {
+
+
+	public  Scene showWindow() {
+		Parent root;
+		Scene scene = null;
+		try {
+			//recuperation du fichier fxml
+			File file= new File ("C:/Users/ASUS(1052440)/Documents/git/l3-projet-groupeA/Project_School_1.0/src/controlleur/AuthentificationFXML.fxml");
+			URL url_fxml = file.toURI().toURL();
+			// Création du loader.
+			FXMLLoader fxmlLoader = new FXMLLoader(url_fxml);
+			//on charge le fichier fxml sur notre conteneur
+			root = fxmlLoader.load();
+		    scene= new Scene(root);
+			return scene;
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}/*
+	    Scene scene = new Scene(group,500,300,Color.ALICEBLUE);
 		
 		
 		Label l = new Label("Saisissez votre identifiant : ");
@@ -58,7 +74,7 @@ public class FenetreAuthentification{
 		group.getChildren().add(pf);
 		group.getChildren().add(b);
 		group.getChildren().add(l3);
-
+*/
 		return scene;
 	}
 

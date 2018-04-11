@@ -1,6 +1,6 @@
 package modele;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Groupe {
 	
@@ -51,6 +51,5 @@ public class Groupe {
 	public void setMatiere(Matiere[] matiere) {
 		this.matiere = matiere;
 	}
-	
 	
 }
