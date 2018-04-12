@@ -1,24 +1,36 @@
 package vue;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
+import application.Main;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import controlleur.ControllerAuthentification;;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;;
 
 
 public class FenetreAuthentification {
-
+	private AnchorPane pane;
+	private Stage stagePrincipal;
 
 	public  Scene showWindow() {
-		Parent root;
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../controlleur/AuthentificationFXML.fxml"));
 		Scene scene = null;
 		try {
+			//Nous récupérons notre conteneur qui contiendra les données
+			//Pour rappel, c'est un AnchorPane...
+			AnchorPane conteneurPersonne = (AnchorPane) loader.load();
+			scene = new Scene(conteneurPersonne);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		/*Parent root;
+		Scene scene = null;
+		try {
+		
 			//recuperation du fichier fxml
-			File file= new File ("C:/Users/ASUS(1052440)/Documents/git/l3-projet-groupeA/Project_School_1.0/src/controlleur/AuthentificationFXML.fxml");
+			File file= new File ("/Project_School_1.0/src/controlleur/AuthentificationFXML.fxml");
 			URL url_fxml = file.toURI().toURL();
 			// Création du loader.
 			FXMLLoader fxmlLoader = new FXMLLoader(url_fxml);
@@ -26,6 +38,7 @@ public class FenetreAuthentification {
 			root = fxmlLoader.load();
 		    scene= new Scene(root);
 			return scene;
+
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -78,8 +91,5 @@ public class FenetreAuthentification {
 		return scene;
 	}
 
-	
-	public static void showOtherWindow() {
-		System.out.println("Okok");
-	}
+
 }
