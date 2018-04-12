@@ -22,6 +22,7 @@ public class ControllerAuthentification {
 	//Oui
 	//Sert de pointeur vers le compte sélectionné dans notre arraylist
 	private int position;
+	private static boolean switchWindow=false;
 	
 	@FXML
 	private TextField logintextfield;
@@ -79,7 +80,7 @@ public class ControllerAuthentification {
 		if(id_correct()) {
 			if(mdp_correct()) {
 				System.out.println("Login + mdp correct");
-				
+				this.switchWindow=true;
 				return ;
 			}
 			else {
@@ -103,6 +104,11 @@ public class ControllerAuthentification {
 	}
 
 	
+	public static boolean isSwitchWindow() {
+		return switchWindow;
+	}
+
+
 	public ControllerAuthentification(ArrayList<Compte> compte) {
 		super();
 		this.compte = compte;
