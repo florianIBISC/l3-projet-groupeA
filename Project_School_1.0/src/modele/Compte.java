@@ -4,6 +4,7 @@ public class Compte {
 
 	private String login;
 	private String mdp;
+	//Clé étrangère avec la classe agents
 	private int id;
 	
 	//Nombre de tentative au compte
