@@ -19,7 +19,7 @@ import modele.Compte;
 public class ControllerAuthentification {
 
 	private ArrayList<Compte> compte;
-	
+	//Oui
 	//Sert de pointeur vers le compte sélectionné dans notre arraylist
 	private int position;
 	
