@@ -6,9 +6,9 @@ public class Agent extends Individu {
 	private int numeroSecuritéSociale;
 	
 	
-	public Agent(int id, String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
-			LocalDate datedenaissance, String numTel, String email, int numeroSecuritéSociale) {
-		super(id, nom, prenom, genre, adresse, lieuNaissance, datedenaissance, numTel, email);
+	public Agent(int numeroSecuritéSociale,String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
+			LocalDate datedenaissance, String numTel, String email) {
+		super(nom, prenom, genre, adresse, lieuNaissance, datedenaissance, numTel, email);
 		this.numeroSecuritéSociale = numeroSecuritéSociale;
 	}
 	

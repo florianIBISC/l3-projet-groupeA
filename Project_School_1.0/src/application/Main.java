@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import vue.FenetreAuthentification;
 
 public class Main extends Application{
 
@@ -18,18 +19,11 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../controlleur/AuthentificationFXML.fxml"));
-		    Parent root = (Parent)loader.load();
-
+			FenetreAuthentification fa = new FenetreAuthentification ();
 		    primaryStage.setTitle("Authentification");
-		    ControllerAuthentification ca=new ControllerAuthentification();
-		    Scene scene=new Scene(root);
+		    Scene scene=fa.showWindow();
 		    primaryStage.setScene(scene);
 	    	primaryStage.show();
-		   /* while(!ControllerAuthentification.isSwitchWindow()) {
-		    	primaryStage.setScene(scene);
-		    	primaryStage.show();
-		    }*/
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

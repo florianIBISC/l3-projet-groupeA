@@ -3,8 +3,6 @@ package modele;
 import java.time.LocalDate;
 
 public class Individu {
-	
-	private int id;
 	private String nom;
 	private String prenom;
 	private char genre;
@@ -16,10 +14,9 @@ public class Individu {
 	
 	
 	
-	public Individu(int id, String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
+	public Individu(String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
 			LocalDate datedenaissance, String numTel, String email) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.genre = genre;
@@ -30,12 +27,6 @@ public class Individu {
 		this.email = email;
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getNom() {
 		return nom;
 	}

@@ -11,9 +11,12 @@ import bd.controlleur.ChargementDonnees;
 import connexionBD.connexionDAOMySQL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import modele.Compte;
+import vue.FenetreCréationCompte;
 
 public class ControllerAuthentification {
 
@@ -38,14 +41,8 @@ public class ControllerAuthentification {
 
 
 	public void Login(ActionEvent event){
-		
-		/*if(logintextfield.getText().equals("login") && mdptextfield.getText().equals("mdp")){
-			statutlabel.setText("OKKK");
-			return;}
-		statutlabel.setText("Login ou mot de passe incorrect");*/
-		//statutlabel
+		//on vérifie d'abord si le compte est bloqué
 		if(compte_bloque()) {
-			System.out.println("Compte bloqué");
 			String message = " Compte bloqué";
 			statutlabel.setText(message);
 			return ;
@@ -74,8 +71,14 @@ public class ControllerAuthentification {
 		
 	}
 	
+	//fonction appelé pour le bouton créer un nouveau un compte
 	public void creercompte(ActionEvent event){
-		System.out.print("creation compte");
+		FenetreCréationCompte fcc = new FenetreCréationCompte();
+		Stage creationCompteStage = new Stage();
+		creationCompteStage.setTitle("Création compte");
+	    Scene scene=fcc.showWindow();
+	    creationCompteStage.setScene(scene);
+	    creationCompteStage.show();
 	}
 
 	

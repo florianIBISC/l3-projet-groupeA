@@ -5,7 +5,7 @@ public class Compte {
 	private String login;
 	private String mdp;
 	//Clé étrangère avec la classe agents
-	private int id;
+	private int numéroSecu;
 	
 	//Nombre de tentative au compte
 	private int nbr_tentative;
@@ -16,23 +16,23 @@ public class Compte {
 	
 	
 	//Constructeur pour les comptes récupéré de la BDD, donc les comptes déjà existants
-	public Compte(String login, int id, String mdp) {
+	public Compte(String login, int numeroSecu, String mdp) {
 		super();
 		this.login = login;
 		nbr_compte++;
-		this.id = id;
+		this.numéroSecu = numeroSecu;
 		this.mdp = mdp;
 		this.nbr_tentative=3;
 	}
 	//Constructeur pour les nouveaux comptes
-	public Compte(String login, String mdp) {
+	/*public Compte(String login,int numéroSecu, String mdp) {
 		super();
 		this.login = login;
 		nbr_compte++;
-		this.id = nbr_compte;
+		this.numéroSecu = numéroSecu;
 		this.mdp = mdp;
 		this.nbr_tentative=3;
-	}
+	}*/
 	
 	public String getLogin() {
 		return login;
@@ -40,11 +40,11 @@ public class Compte {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public int getId() {
-		return id;
+	public int getnuméroSecu() {
+		return numéroSecu;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int numéroSecu) {
+		this.numéroSecu = numéroSecu;
 	}
 	public String getMdp() {
 		return mdp;
