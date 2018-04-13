@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ListIterator;
+
+import bd.controlleur.ChargementDonnees;
 import connexionBD.connexionDAOMySQL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,38 +30,11 @@ public class ControllerAuthentification {
 	
 	@FXML
 	private Label statutlabel;
-	
-	Connection conn;
-	PreparedStatement state;
-	ResultSet res;
-	public ControllerAuthentification() {
-		super();
-		try {
-			//On récupère une connexion à la BDD
-			this.conn= connexionDAOMySQL.getInstance();
-			//On va récupérer les données de la BDD pour en faire de nouveaux objets
-			this.state = conn.prepareStatement("SELECT * FROM compte");
-			
-			//On éxécute les requêtes sql
-			this.res = state.executeQuery();		
-			
-			//On va récupérer tous les comptes de la base de données et les rentrer dans notre ArrayList
-			while(res.next()) {
-				String login = res.getString("login");
-				int id = res.getInt("idCompte");
-				String passwd = res.getString("mdp");
-				Compte temp = new Compte(login,id,passwd);
-				this.compte.add(temp);
-			}
-			for(int i=0;i<this.compte.size();i++){
-				System.out.print(this.compte.get(i).getLogin());
-				System.out.print(this.compte.get(i).getMdp());
-			}
 
-	}catch(Exception e) {
-		e.printStackTrace();
+	
+	public ControllerAuthentification() {
+		this.compte=ChargementDonnees.getCompteChargés();
 	}
-}
 
 
 	public void Login(ActionEvent event){
@@ -73,15 +48,6 @@ public class ControllerAuthentification {
 			System.out.println("Compte bloqué");
 			String message = " Compte bloqué";
 			statutlabel.setText(message);
-			//On ferme toutes les connexions
-			try {
-				this.res.close();
-				this.state.close();
-				this.conn.close();
-			} catch (SQLException e) {
-					// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			return ;
 			
 		}
@@ -90,28 +56,12 @@ public class ControllerAuthentification {
 				System.out.println("Login + mdp correct");
 				statutlabel.setText("Login + mdp correct");
 				switchWindow=true;
-				try {
-					this.res.close();
-					this.state.close();
-					this.conn.close();
-				} catch (SQLException e) {
-						// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				return ;
 			}
 			else {
 				System.out.println("Mauvais mdp");
 				String message = " Mot de passe incorrect\n Il vous reste : "+compte.get(position).getNbr_tentative()+" tentatives";
 				statutlabel.setText(message);
-				try {
-					this.res.close();
-					this.state.close();
-					this.conn.close();
-				} catch (SQLException e) {
-						// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				return ;
 			}
 		}
@@ -119,14 +69,6 @@ public class ControllerAuthentification {
 			System.out.println("Login inconnue !");
 			String message = " Login inconnu";
 			statutlabel.setText(message);
-			try {
-				this.res.close();
-				this.state.close();
-				this.conn.close();
-			} catch (SQLException e) {
-					// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			return ;
 		}
 		

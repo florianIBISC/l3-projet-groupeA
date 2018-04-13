@@ -1,5 +1,5 @@
 package modele;
 
-public class Administrateur {
+public class Administrateur extends Individu{
 
 }
