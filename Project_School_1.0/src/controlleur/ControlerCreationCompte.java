@@ -15,7 +15,6 @@ import modele.Compte;
 
 public class ControlerCreationCompte {
 	private ArrayList<Agent> agents= new ArrayList<Agent>();
-	
 	@FXML
 	private TextField sécu;
 	

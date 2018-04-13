@@ -12,8 +12,6 @@ public class Individu {
 	private String numTel;
 	private String email;
 	
-	
-	
 	public Individu(String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
 			LocalDate datedenaissance, String numTel, String email) {
 		super();
