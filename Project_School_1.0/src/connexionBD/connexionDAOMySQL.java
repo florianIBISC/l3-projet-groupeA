@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class connexionDAOMySQL {
-	private static String url = "jdbc:mysql://localhost:3306/projetschool1.0?autoReconnect=true&useSSL=false";
+	private static String url = "jdbc:mysql://localhost:3306/projet_school?autoReconnect=true&useSSL=false";
 	private static String utilisateur = "root";
 	private static String motDePasse = "";
 	private static Connection connexion;

@@ -10,7 +10,6 @@ public class SessionSchool {
 	//N'a pas besoin de figurer dans le constructeur, sera la différence des dates de début et de fin
 	private int duree;
 	private ArrayList<Groupe> groupes;
-	
 	//Le type de session on le fait en string ou en énumération ? 
 	private String typeSession;
 	

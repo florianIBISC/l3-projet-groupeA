@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 13 avr. 2018 à 21:35
--- Version du serveur :  5.7.21
--- Version de PHP :  5.6.35
+-- Généré le :  sam. 14 avr. 2018 à 15:12
+-- Version du serveur :  5.7.17-log
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,32 +33,21 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
   `numSecu` int(55) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
-  `genre` enum('h','f') NOT NULL,
-  `idAdresse` int(150) NOT NULL,
+  `genre` varchar(1) NOT NULL,
+  `Adresse` varchar(500) NOT NULL,
   `lieuNaissance` varchar(255) NOT NULL,
   `dateNaissance` date NOT NULL,
   `numTel` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`numSecu`),
-  KEY `idAdresse` (`idAdresse`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  PRIMARY KEY (`numSecu`)
+) ENGINE=InnoDB AUTO_INCREMENT=123456790 DEFAULT CHARSET=utf8;
 
 --
--- Structure de la table `adresses`
+-- Déchargement des données de la table `administrateur`
 --
 
-DROP TABLE IF EXISTS `adresses`;
-CREATE TABLE IF NOT EXISTS `adresses` (
-  `idAdresse` int(11) NOT NULL AUTO_INCREMENT,
-  `numRue` int(11) NOT NULL,
-  `CP` int(11) NOT NULL,
-  `nomRue` varchar(255) NOT NULL,
-  `nomVille` varchar(255) NOT NULL,
-  `complémentAdresse` varchar(255) NOT NULL,
-  PRIMARY KEY (`idAdresse`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `administrateur` (`numSecu`, `nom`, `prenom`, `genre`, `Adresse`, `lieuNaissance`, `dateNaissance`, `numTel`, `email`) VALUES
+(123456789, 'Patcheappane', 'Vignesh', 'h', '1', 'Inde', '1997-06-22', '0606060606', 'vignesh91350@outlook.fr');
 
 -- --------------------------------------------------------
 
@@ -68,13 +57,21 @@ CREATE TABLE IF NOT EXISTS `adresses` (
 
 DROP TABLE IF EXISTS `compte`;
 CREATE TABLE IF NOT EXISTS `compte` (
-  `idCompte` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL,
   `numSecu` int(55) NOT NULL,
-  PRIMARY KEY (`idCompte`),
+  PRIMARY KEY (`login`),
   KEY `numSecu` (`numSecu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `compte`
+--
+
+INSERT INTO `compte` (`login`, `mdp`, `numSecu`) VALUES
+('test', 'test', 123456789),
+('test2', 'test2', 123456789),
+('vpatchea', '123456', 123456789);
 
 -- --------------------------------------------------------
 
@@ -122,12 +119,11 @@ CREATE TABLE IF NOT EXISTS `etudiant` (
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `genre` enum('h','f') NOT NULL,
-  `idAdresse` int(11) NOT NULL,
+  `adresse` varchar(500) NOT NULL,
   `lieuNaissance` varchar(255) NOT NULL,
   `dateNaissance` date NOT NULL,
   `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`idEtudiant`),
-  KEY `idAdresse` (`idAdresse`)
+  PRIMARY KEY (`idEtudiant`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -160,11 +156,12 @@ CREATE TABLE IF NOT EXISTS `inscription` (
   `dateAbandon` date NOT NULL,
   `idEtudiant` int(11) NOT NULL,
   `matiere` varchar(255) NOT NULL,
-  `sessionSchool` varchar(255) NOT NULL,
+  `sessionSchool` int(255) NOT NULL,
   `idGroupe` int(11) NOT NULL,
   PRIMARY KEY (`idInscription`),
   KEY `idEtudiant` (`idEtudiant`),
-  KEY `idGroupe` (`idGroupe`)
+  KEY `idGroupe` (`idGroupe`),
+  KEY `inscription_ibfk_3` (`sessionSchool`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -212,12 +209,6 @@ CREATE TABLE IF NOT EXISTS `sessionschool` (
 --
 
 --
--- Contraintes pour la table `administrateur`
---
-ALTER TABLE `administrateur`
-  ADD CONSTRAINT `administrateur_ibfk_1` FOREIGN KEY (`idAdresse`) REFERENCES `adresses` (`idAdresse`);
-
---
 -- Contraintes pour la table `compte`
 --
 ALTER TABLE `compte`
@@ -231,12 +222,6 @@ ALTER TABLE `cours`
   ADD CONSTRAINT `cours_ibfk_2` FOREIGN KEY (`idSalle`) REFERENCES `salle` (`idSalle`);
 
 --
--- Contraintes pour la table `etudiant`
---
-ALTER TABLE `etudiant`
-  ADD CONSTRAINT `etudiant_ibfk_1` FOREIGN KEY (`idAdresse`) REFERENCES `adresses` (`idAdresse`);
-
---
 -- Contraintes pour la table `groupe`
 --
 ALTER TABLE `groupe`
@@ -248,7 +233,8 @@ ALTER TABLE `groupe`
 --
 ALTER TABLE `inscription`
   ADD CONSTRAINT `inscription_ibfk_1` FOREIGN KEY (`idEtudiant`) REFERENCES `etudiant` (`idEtudiant`),
-  ADD CONSTRAINT `inscription_ibfk_2` FOREIGN KEY (`idGroupe`) REFERENCES `groupe` (`idGroupe`);
+  ADD CONSTRAINT `inscription_ibfk_2` FOREIGN KEY (`idGroupe`) REFERENCES `groupe` (`idGroupe`),
+  ADD CONSTRAINT `inscription_ibfk_3` FOREIGN KEY (`sessionSchool`) REFERENCES `sessionschool` (`idSession`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

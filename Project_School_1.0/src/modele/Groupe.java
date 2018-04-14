@@ -3,7 +3,7 @@ package modele;
 import java.util.ArrayList;
 
 public class Groupe {
-	
+
 	private int idGroupe;
 	private ArrayList<Etudiant> listeEtudiant;
 	private int capacite;

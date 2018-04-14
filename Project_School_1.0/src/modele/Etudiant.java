@@ -7,14 +7,14 @@ public class Etudiant extends Individu{
 
 	
 	
-	public Etudiant(String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
+	public Etudiant(String nom, String prenom, char genre, String adresse,String lieuNaissance,
 			LocalDate datedenaissance, String numTel, String email, Groupe groupe) {
-		super(nom, prenom, genre, adresse, lieuNaissance, datedenaissance, numTel, email);
+		super(nom, prenom, genre,adresse, lieuNaissance, datedenaissance, numTel, email);
 		this.groupe = groupe;
 	}
 	
 	//Constructeur pour un étudiant qui n'a pas encore de groupe
-	public Etudiant(String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
+	public Etudiant(String nom, String prenom, char genre, String adresse, String lieuNaissance,
 			LocalDate datedenaissance, String numTel, String email) {
 		super(nom, prenom, genre, adresse, lieuNaissance, datedenaissance, numTel, email);
 		this.groupe=null;

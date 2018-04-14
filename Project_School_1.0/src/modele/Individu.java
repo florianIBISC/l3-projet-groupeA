@@ -6,19 +6,19 @@ public class Individu {
 	private String nom;
 	private String prenom;
 	private char genre;
-	private Adresse adresse;
+	private String adresse;
 	private String lieuNaissance;
 	private LocalDate datedenaissance;
 	private String numTel;
 	private String email;
 	
-	public Individu(String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
+	public Individu(String nom, String prenom, char genre,String adresse,String lieuNaissance,
 			LocalDate datedenaissance, String numTel, String email) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.genre = genre;
-		this.adresse = adresse;
+		this.adresse=adresse;
 		this.lieuNaissance = lieuNaissance;
 		this.datedenaissance = datedenaissance;
 		this.numTel = numTel;
@@ -42,12 +42,6 @@ public class Individu {
 	}
 	public void setGenre(char genre) {
 		this.genre = genre;
-	}
-	public Adresse getAdresse() {
-		return adresse;
-	}
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
 	}
 	public String getLieuNaissance() {
 		return lieuNaissance;

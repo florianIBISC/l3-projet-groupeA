@@ -1,29 +1,26 @@
 package controlleur;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
 import bd.controlleur.ChargementDonnees;
-import connexionBD.connexionDAOMySQL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import modele.Compte;
-import vue.FenetreCréationCompte;
 
 public class ControllerAuthentification {
 
 	private ArrayList<Compte> compte=new ArrayList<Compte>();
 	//Sert de pointeur vers le compte sélectionné dans notre arraylist
 	private int position;
-	private static boolean switchWindow=false;
 	
 	@FXML
 	private TextField logintextfield;
@@ -50,9 +47,7 @@ public class ControllerAuthentification {
 		}
 		if(id_correct()) {
 			if(mdp_correct()) {
-				System.out.println("Login + mdp correct");
 				statutlabel.setText("Login + mdp correct");
-				switchWindow=true;
 				return ;
 			}
 			else {
@@ -73,18 +68,27 @@ public class ControllerAuthentification {
 	
 	//fonction appelé pour le bouton créer un nouveau un compte
 	public void creercompte(ActionEvent event){
-		FenetreCréationCompte fcc = new FenetreCréationCompte();
 		Stage creationCompteStage = new Stage();
-		creationCompteStage.setTitle("Création compte");
-	    Scene scene=fcc.showWindow();
-	    creationCompteStage.setScene(scene);
-	    creationCompteStage.show();
+		try {
+			// Localisation du fichier FXML.
+			final URL url = getClass().getClassLoader().getResource("vue/CreationCompte.fxml");
+
+			// CrÃ©ation du loader.
+			final FXMLLoader fxmlLoader = new FXMLLoader(url);
+
+			// Chargement du FXML.
+			final AnchorPane root = (AnchorPane) fxmlLoader.load();
+
+			// CrÃ©ation de la scÃ¨ne.
+			final Scene scene = new Scene(root);
+			creationCompteStage.setScene(scene);
+			creationCompteStage.show();
+		} catch (IOException ex) {
+			System.err.println("Erreur au chargement: " + ex);
+		}
 	}
 
 	
-	public static boolean isSwitchWindow() {
-		return switchWindow;
-	}
 
 
 	public ControllerAuthentification(ArrayList<Compte> compte) {
