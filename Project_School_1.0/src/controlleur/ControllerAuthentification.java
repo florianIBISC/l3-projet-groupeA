@@ -48,6 +48,24 @@ public class ControllerAuthentification {
 		if(id_correct()) {
 			if(mdp_correct()) {
 				statutlabel.setText("Login + mdp correct");
+				Stage menuPrincipal = new Stage();
+				try {
+					// Localisation du fichier FXML.
+					final URL url = getClass().getClassLoader().getResource("vue/MenuPrincipal.fxml");
+
+					// Création du loader.
+					final FXMLLoader fxmlLoader = new FXMLLoader(url);
+
+					// Chargement du FXML.
+					final AnchorPane root = (AnchorPane) fxmlLoader.load();
+
+					// Création de la scène.
+					final Scene scene = new Scene(root);
+					menuPrincipal.setScene(scene);
+					menuPrincipal.show();
+				} catch (IOException ex) {
+					System.err.println("Erreur au chargement: " + ex);
+				}
 				return ;
 			}
 			else {

@@ -18,7 +18,7 @@ public class Individu {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.genre = genre;
-		this.adresse=adresse;
+		this.setAdresse(adresse);
 		this.lieuNaissance = lieuNaissance;
 		this.datedenaissance = datedenaissance;
 		this.numTel = numTel;
@@ -66,6 +66,14 @@ public class Individu {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 	
 	

@@ -6,6 +6,8 @@ import bd.controlleur.ChargementDonnees;
 import bd.controlleur.compteBD;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,6 +16,7 @@ import modele.Agent;
 import modele.Compte;
 
 public class ControlerCreationCompte {
+	
 	private ArrayList<Agent> agents= new ArrayList<Agent>();
 	@FXML
 	private TextField sécu;
@@ -36,9 +39,21 @@ public class ControlerCreationCompte {
 	}
 	
 	public void creationCompte(ActionEvent event){
-		int numSecu = Integer.parseInt(sécu.getText());
-		String login = loginCreationcompte.getText();
-		String mdp= mdpCreationcompte.getText();
+		int numSecu = 0;
+		String login = null;
+		String mdp = null;
+		try{
+			numSecu = Integer.parseInt(sécu.getText());
+			login = loginCreationcompte.getText();
+			mdp= mdpCreationcompte.getText();
+		}catch(Exception e){
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error Dialog");
+			alert.setHeaderText("Erreur !");
+			alert.setContentText("Ooops, vérifier vos informations saisies!");
+
+			alert.showAndWait();
+		}
 		
 		
 		if(verifsiagentexiste(numSecu)){
