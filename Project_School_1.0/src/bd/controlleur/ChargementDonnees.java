@@ -66,7 +66,7 @@ public class ChargementDonnees {
 			ResultSet res3=state3.executeQuery();
 			//on recupere tous les etudiants enregistrés dans la base de données
 			while(res3.next()) {
-				etudiantEnregistrés.add(new Etudiant(Integer.toString(res3.getInt(1)),res3.getString(2),res3.getString(3),res3.getString(4),"0"+res3.getString(5),res3.getString(6)));
+				etudiantEnregistrés.add(new Etudiant(Integer.toString(res3.getInt(1)),res3.getString(2),res3.getString(3),res3.getString(4),"0"+res3.getString(5),res3.getString(6),res3.getString(7)));
 
 			}
 

@@ -9,21 +9,8 @@ public class Groupe {
 	private StringProperty idGroupe;
 	private ArrayList<Etudiant> listeEtudiant;
 	private StringProperty capacite;
-	private SessionSchool session;
-	private Matiere matiere;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	private StringProperty matiere;
+
 	
 	/*
 	public Groupe(int idGroupe, ArrayList<Etudiant> listeEtudiant, int capacite, SessionSchool session,

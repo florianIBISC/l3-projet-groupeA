@@ -11,7 +11,7 @@ import modele.Etudiant;
 public class EtudianBD {
 	
 	public void ajoutEtudiant(Etudiant e) {
-		String sql = "INSERT INTO etudiant (idEtudiant,prenom,nom,email,numTel,dateNaissance) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO etudiant (idEtudiant,prenom,nom,email,numTel,dateNaissance,matiere) VALUES (?,?,?,?,?,?,?)";
 		try {
 			Connection conn = connexionDAOMySQL.getInstance();
 			PreparedStatement state = conn.prepareStatement(sql);
@@ -21,6 +21,7 @@ public class EtudianBD {
 			state.setString(4, e.getEmail());
 			state.setString(5, e.getTelephone());
 			state.setString(6, e.getDate());
+			state.setString(7, e.getMatiere());
 			state.executeUpdate();
 			
 			state.close();

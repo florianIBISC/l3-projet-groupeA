@@ -19,9 +19,9 @@ public class Main extends Application{
 	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Image icon = new Image("image/icon.png");
-		primaryStage.getIcons().add(icon);
-
+		//Image icon = new Image("image/icon.png");
+		//primaryStage.getIcons().add(icon);
+		
 		ControllerAuthentification ca=new ControllerAuthentification();
 		
 		try {

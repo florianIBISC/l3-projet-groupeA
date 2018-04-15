@@ -93,7 +93,7 @@ public class ControllerGestionEtudiant implements Initializable {
 
 	@FXML
 	private void ajoutEtudiant(ActionEvent e) {
-		Etudiant newEtudiant = new Etudiant(this.id.getText(),this.prenom.getText(),this.nom.getText(),this.email.getText(),this.telephone.getText(),this.date.getEditor().getText());
+		Etudiant newEtudiant = new Etudiant(this.id.getText(),this.prenom.getText(),this.nom.getText(),this.email.getText(),this.telephone.getText(),this.date.getEditor().getText(),"matiere");
 		EtudianBD et= new EtudianBD();
 		et.ajoutEtudiant(newEtudiant);
 				/*String sql = "INSERT INTO etudiant (idEtudiant,nom,prenom,dateNaissance,email,numTel) VALUES (?,?,?,?,?,?)";

@@ -10,9 +10,10 @@ public class Etudiant {
 	private StringProperty email;
 	private StringProperty telephone;
 	private StringProperty date;
+	private StringProperty matiere;
 	
 	public Etudiant(String id, String prenom, String nom, String email,
-			String telephone, String date) {
+			String telephone, String date, String matiere) {
 		super();
 		this.id = new SimpleStringProperty(id);
 		this.prenom = new SimpleStringProperty(prenom);
@@ -20,6 +21,7 @@ public class Etudiant {
 		this.email = new SimpleStringProperty(email);
 		this.telephone = new SimpleStringProperty(telephone);
 		this.date = new SimpleStringProperty(date);
+		this.matiere=new SimpleStringProperty(matiere);
 	}
 
 	public StringProperty getIdProperty() {
@@ -88,6 +90,18 @@ public class Etudiant {
 
 	public void setDate(StringProperty date) {
 		this.date = date;
+	}
+
+	public StringProperty getMatiereProperty() {
+		return matiere;
+	}
+
+	public void setMatiere(StringProperty matiere) {
+		this.matiere = matiere;
+	}
+	
+	public String getMatiere(){
+		return matiere.get();
 	}
 
 }

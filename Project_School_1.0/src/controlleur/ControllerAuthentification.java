@@ -105,7 +105,27 @@ public class ControllerAuthentification {
 			System.err.println("Erreur au chargement: " + ex);
 		}
 	}
+	
+	public void inscriptionEtudiant(){
+		Stage creationCompteEtudiant = new Stage();
+		try {
+			// Localisation du fichier FXML.
+			final URL url = getClass().getClassLoader().getResource("vue/EtudiantFXML.fxml");
 
+			// Création du loader.
+			final FXMLLoader fxmlLoader = new FXMLLoader(url);
+
+			// Chargement du FXML.
+			final AnchorPane root = (AnchorPane) fxmlLoader.load();
+
+			// Création de la scène.
+			final Scene scene = new Scene(root);
+			creationCompteEtudiant.setScene(scene);
+			creationCompteEtudiant.show();
+		} catch (IOException ex) {
+			System.err.println("Erreur au chargement: " + ex);
+		}
+	}
 	
 
 
