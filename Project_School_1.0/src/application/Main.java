@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+
 import javafx.stage.Stage;
 
 public class Main extends Application{
@@ -19,9 +20,16 @@ public class Main extends Application{
 	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+<<<<<<< HEAD
 		//Image icon = new Image("image/icon.png");
 		//primaryStage.getIcons().add(icon);
 		
+=======
+		Image icon = new Image("image/icon.png");
+		primaryStage.getIcons().add(icon);
+		
+
+>>>>>>> 24a783ea5a0c9ecc6e768d3ce8dae03780113f38
 		ControllerAuthentification ca=new ControllerAuthentification();
 		
 		try {
