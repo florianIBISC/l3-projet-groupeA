@@ -47,7 +47,7 @@ public class ControleurMenuPrincipal {
 			final AnchorPane root = (AnchorPane) fxmlLoader.load();
 
 			// Création de la scène.
-			final Scene scene = new Scene(root,785,554);
+			final Scene scene = new Scene(root,750,600);
 			gestionGroupe.setScene(scene);
 			gestionGroupe.show();
 		} catch (IOException ex) {

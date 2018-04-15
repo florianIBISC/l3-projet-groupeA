@@ -11,6 +11,19 @@ public class Groupe {
 	private Matiere[] matiere;
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	public Groupe(int idGroupe, ArrayList<Etudiant> listeEtudiant, int capacite, SessionSchool session,
 			Matiere[] matiere) {
 		super();
@@ -51,5 +64,5 @@ public class Groupe {
 	public void setMatiere(Matiere[] matiere) {
 		this.matiere = matiere;
 	}
-	
+	*/
 }
