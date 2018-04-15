@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 15 avr. 2018 à 12:30
--- Version du serveur :  5.7.17-log
+-- Généré le :  Dim 15 avr. 2018 à 15:48
+-- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -40,14 +40,15 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
   `numTel` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   PRIMARY KEY (`numSecu`)
-) ENGINE=InnoDB AUTO_INCREMENT=123456790 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=987654322 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `administrateur`
 --
 
 INSERT INTO `administrateur` (`numSecu`, `nom`, `prenom`, `genre`, `Adresse`, `lieuNaissance`, `dateNaissance`, `numTel`, `email`) VALUES
-(123456789, 'Patcheappane', 'Vignesh', 'h', '1', 'Inde', '1997-06-22', '0606060606', 'vignesh91350@outlook.fr');
+(123456789, 'Patcheappane', 'Vignesh', 'h', '1', 'Inde', '1997-06-22', '0606060606', 'vignesh91350@outlook.fr'),
+(987654321, 'Rabarisoa', 'Nico', 'h', '1 Rue de grigny', 'Madagascar', '1997-09-17', '0700000000', 'nicorabarisoa@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -69,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `compte` (
 --
 
 INSERT INTO `compte` (`login`, `mdp`, `numSecu`) VALUES
+('nicoraba', '1234', 987654321),
 ('test', 'test', 123456789),
 ('test2', 'test2', 123456789),
 ('vpatchea', '123456', 123456789);
@@ -118,19 +120,13 @@ CREATE TABLE IF NOT EXISTS `etudiant` (
   `idEtudiant` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
-  `dateNaissance` varchar(15) NOT NULL,
+  `genre` enum('h','f') NOT NULL,
+  `adresse` varchar(500) NOT NULL,
+  `lieuNaissance` varchar(255) NOT NULL,
+  `dateNaissance` date NOT NULL,
   `email` varchar(255) NOT NULL,
-  `numTel` varchar(11) NOT NULL,
   PRIMARY KEY (`idEtudiant`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `etudiant`
---
-
-INSERT INTO `etudiant` (`idEtudiant`, `nom`, `prenom`, `dateNaissance`, `email`, `numTel`) VALUES
-(1, 'Florian', 'Michaud', '01/01/1900', 'florian@gmail.com', '0695595959'),
-(6, 'test', 'test', '28/04/1996', 'test@gmail.com', '0695570896');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
