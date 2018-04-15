@@ -81,6 +81,14 @@ public class Inscription {
 	public void setInscris(boolean inscris) {
 		this.inscris = inscris;
 	}
+
+	public Etudiant getEtudiantInscrit() {
+		return etudiantInscrit;
+	}
+
+	public void setEtudiantInscrit(Etudiant etudiantInscrit) {
+		this.etudiantInscrit = etudiantInscrit;
+	}
 	
 	
 	

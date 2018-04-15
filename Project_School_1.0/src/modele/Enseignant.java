@@ -4,10 +4,9 @@ import java.time.LocalDate;
 
 public class Enseignant extends Agent{
 	private Cours[] cours;
-	private Matiere[] matiere;
 	
 	
-	public Enseignant(int numeroSecuritéSociale,String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
+	public Enseignant(int numeroSecuritéSociale,String nom, String prenom, char genre, String adresse, String lieuNaissance,
 			LocalDate datedenaissance, String numTel, String email) {
 		super(numeroSecuritéSociale,nom, prenom, genre, adresse, lieuNaissance, datedenaissance, numTel, email);
 		// TODO Auto-generated constructor stub
@@ -15,12 +14,10 @@ public class Enseignant extends Agent{
 
 	
 
-	public Enseignant(int numeroSecuritéSociale, String nom, String prenom, char genre, Adresse adresse, String lieuNaissance,
-			LocalDate datedenaissance, String numTel, String email,  Cours[] cours,
-			Matiere[] matiere) {
+	public Enseignant(int numeroSecuritéSociale, String nom, String prenom, char genre, String adresse, String lieuNaissance,
+			LocalDate datedenaissance, String numTel, String email,  Cours[] cours) {
 		super(numeroSecuritéSociale, nom, prenom, genre, adresse, lieuNaissance, datedenaissance, numTel, email);
 		this.cours = cours;
-		this.matiere = matiere;
 	}
 
 
@@ -33,12 +30,5 @@ public class Enseignant extends Agent{
 		this.cours = cours;
 	}
 
-	public Matiere[] getMatiere() {
-		return matiere;
-	}
-
-	public void setMatiere(Matiere[] matiere) {
-		this.matiere = matiere;
-	}
 	
 }
