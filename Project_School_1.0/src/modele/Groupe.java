@@ -2,13 +2,15 @@ package modele;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.StringProperty;
+
 public class Groupe {
 
-	private int idGroupe;
+	private StringProperty idGroupe;
 	private ArrayList<Etudiant> listeEtudiant;
-	private int capacite;
+	private StringProperty capacite;
 	private SessionSchool session;
-	private Matiere[] matiere;
+	private Matiere matiere;
 	
 	
 	
