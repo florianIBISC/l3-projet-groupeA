@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import controlleur.*?>
+
+<AnchorPane prefHeight="430.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.ControllerAuthentification">
+   <children>
+      <TextField fx:id="logintextfield" layoutX="116.0" layoutY="172.0" promptText="Login" />
+      <Button fx:id="loginbutton" layoutX="164.0" layoutY="315.0" mnemonicParsing="false" onAction="#Login" text="Valider" />
+      <Label layoutX="128.0" layoutY="81.0" prefHeight="35.0" prefWidth="126.0" text="Connexion">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="114.0" layoutY="292.0" />
+      <PasswordField fx:id="mdptextfield" layoutX="116.0" layoutY="248.0" promptText="password" />
+      <Label fx:id="statutlabel" layoutX="114.0" layoutY="284.0" prefHeight="17.0" prefWidth="171.0" textFill="#da0909" />
+      <Button fx:id="buttoncreercompte" layoutX="14.0" layoutY="382.0" mnemonicParsing="false" onAction="#creercompte" prefHeight="25.0" prefWidth="160.0" text="Créer un nouveau compte" />
+   </children>
+</AnchorPane>

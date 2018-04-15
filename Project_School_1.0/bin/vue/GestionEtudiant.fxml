@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.ControllerGestionEtudiant">
+   <children>
+      <TabPane layoutX="235.0" layoutY="134.0" prefHeight="800.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="336.0" prefHeight="760.0" prefWidth="664.0">
+                           <children>
+                              <TableView fx:id="etudiantTable" prefHeight="760.0" prefWidth="683.0">
+                                <columns>
+                                  <TableColumn fx:id="idcolumn" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="prenomcolumn" prefWidth="75.0" text="Prenom" />
+                                    <TableColumn fx:id="nomcolumn" prefWidth="75.0" text="Nom" />
+                                    <TableColumn fx:id="emailcolumn" prefWidth="151.0" text="Email" />
+                                    <TableColumn fx:id="telephonecolumn" prefWidth="107.0" text="Telephone" />
+                                    <TableColumn fx:id="datecolumn" minWidth="8.0" prefWidth="180.0" text="Date de naissance" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <VBox layoutX="-2.0" prefHeight="761.0" prefWidth="337.0">
+                           <children>
+                              <Label prefHeight="21.0" prefWidth="339.0" text="Ajout d'un étudiant">
+                                 <padding>
+                                    <Insets left="100.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="id" text="ID" />
+                              <TextField fx:id="prenom" layoutX="10.0" layoutY="31.0" text="Prenom" />
+                              <TextField fx:id="nom" layoutX="10.0" layoutY="31.0" text="Nom" />
+                              <TextField fx:id="email" layoutX="10.0" layoutY="93.0" text="Email" />
+                              <TextField fx:id="telephone" layoutX="10.0" layoutY="124.0" text="Telephone" />
+                              <DatePicker fx:id="date" prefHeight="31.0" prefWidth="339.0" />
+                              <Button mnemonicParsing="false" onAction="#ajoutEtudiant" text="Valider" />
+                              <Button mnemonicParsing="false" onAction="#chargerDonnees" text="Charger les données" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
