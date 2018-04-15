@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 14 avr. 2018 à 15:12
+-- Généré le :  Dim 15 avr. 2018 à 12:30
 -- Version du serveur :  5.7.17-log
 -- Version de PHP :  5.6.31
 
@@ -118,13 +118,19 @@ CREATE TABLE IF NOT EXISTS `etudiant` (
   `idEtudiant` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
-  `genre` enum('h','f') NOT NULL,
-  `adresse` varchar(500) NOT NULL,
-  `lieuNaissance` varchar(255) NOT NULL,
-  `dateNaissance` date NOT NULL,
+  `dateNaissance` varchar(15) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `numTel` varchar(11) NOT NULL,
   PRIMARY KEY (`idEtudiant`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `etudiant`
+--
+
+INSERT INTO `etudiant` (`idEtudiant`, `nom`, `prenom`, `dateNaissance`, `email`, `numTel`) VALUES
+(1, 'Florian', 'Michaud', '01/01/1900', 'florian@gmail.com', '0695595959'),
+(6, 'test', 'test', '28/04/1996', 'test@gmail.com', '0695570896');
 
 -- --------------------------------------------------------
 

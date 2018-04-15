@@ -34,6 +34,7 @@ public class ControllerAuthentification {
 	
 	public ControllerAuthentification() {
 		this.compte=ChargementDonnees.getCompteChargés();
+		//this.id_correct();
 	}
 
 
@@ -43,7 +44,6 @@ public class ControllerAuthentification {
 			String message = " Compte bloqué";
 			statutlabel.setText(message);
 			return ;
-			
 		}
 		if(id_correct()) {
 			if(mdp_correct()) {
@@ -116,15 +116,16 @@ public class ControllerAuthentification {
 	}
 
 	public boolean id_correct() {
-		ListIterator<Compte>it = this.compte.listIterator();
 		int i=0;
-		while(it.hasNext()) {
-			if(it.next().getLogin().equals(logintextfield.getText())){
+		for(int j=0;j<this.compte.size();j++){
+			System.out.print(this.compte.get(j).getLogin());
+			if(this.compte.get(j).getLogin().equals(logintextfield.getText())){
 				this.position=i;
 				return true;
 			}
 			i++;
 		}
+		
 		return false;
 	}
 

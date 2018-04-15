@@ -1,116 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.ControllerGestionEtudiant">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" layoutX="77.0" layoutY="28.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <TableView prefHeight="398.0" prefWidth="174.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Nom" />
-                      <TableColumn prefWidth="75.0" text="Prénom" />
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <BorderPane layoutX="108.0" layoutY="61.0" prefHeight="398.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <top>
-                        <Label text="Information" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets left="20.0" right="50.0" top="20.0" />
-                           </BorderPane.margin>
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                     </top>
-                     <bottom>
-                        <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                          <items>
-                            <Button fx:id="supprimerEtudiant" mnemonicParsing="false" text="Supprimer" />
-                              <Button fx:id="editerEtudiant" mnemonicParsing="false" text="Editer" />
-                              <Button mnemonicParsing="false" text="Nouvelle Inscription" />
-                          </items>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </ToolBar>
-                     </bottom>
-                     <center>
-                        <GridPane BorderPane.alignment="CENTER">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+      <TabPane layoutX="235.0" layoutY="134.0" prefHeight="800.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="336.0" prefHeight="760.0" prefWidth="664.0">
                            <children>
-                              <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Nom :">
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                              </Label>
-                              <Label fx:id="labelNomEtudiant" text="NomValue" GridPane.columnIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="20.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="Prénom :" GridPane.rowIndex="1">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                              </Label>
-                              <Label text="Date de naissance :" GridPane.rowIndex="2">
-                                 <GridPane.margin>
-                                    <Insets left="20.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label fx:id="labelPrenomEtudiant" text="PrenomValue" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="20.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label fx:id="labelDatedenaissance" text="DateValue" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <GridPane.margin>
-                                    <Insets left="20.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="Sexe" GridPane.rowIndex="3">
-                                 <GridPane.margin>
-                                    <Insets left="20.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label fx:id="labelsexeEtudiant" text="SexeValue" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                 <GridPane.margin>
-                                    <Insets left="20.0" />
-                                 </GridPane.margin>
-                              </Label>
+                              <TableView fx:id="etudiantTable" prefHeight="760.0" prefWidth="683.0">
+                                <columns>
+                                  <TableColumn fx:id="idcolumn" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="prenomcolumn" prefWidth="75.0" text="Prenom" />
+                                    <TableColumn fx:id="nomcolumn" prefWidth="75.0" text="Nom" />
+                                    <TableColumn fx:id="emailcolumn" prefWidth="151.0" text="Email" />
+                                    <TableColumn fx:id="telephonecolumn" prefWidth="107.0" text="Telephone" />
+                                    <TableColumn fx:id="datecolumn" minWidth="8.0" prefWidth="180.0" text="Date de naissance" />
+                                </columns>
+                              </TableView>
                            </children>
-                        </GridPane>
-                     </center>
-                  </BorderPane>
-               </children></AnchorPane>
-        </items>
-      </SplitPane>
+                        </HBox>
+                        <VBox layoutX="-2.0" prefHeight="761.0" prefWidth="337.0">
+                           <children>
+                              <Label prefHeight="21.0" prefWidth="339.0" text="Ajout d'un étudiant">
+                                 <padding>
+                                    <Insets left="100.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="id" text="ID" />
+                              <TextField fx:id="prenom" layoutX="10.0" layoutY="31.0" text="Prenom" />
+                              <TextField fx:id="nom" layoutX="10.0" layoutY="31.0" text="Nom" />
+                              <TextField fx:id="email" layoutX="10.0" layoutY="93.0" text="Email" />
+                              <TextField fx:id="telephone" layoutX="10.0" layoutY="124.0" text="Telephone" />
+                              <DatePicker fx:id="date" prefHeight="31.0" prefWidth="339.0" />
+                              <Button mnemonicParsing="false" onAction="#ajoutEtudiant" text="Valider" />
+                              <Button mnemonicParsing="false" onAction="#chargerDonnees" text="Charger les données" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

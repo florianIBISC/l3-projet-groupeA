@@ -33,4 +33,25 @@ public class ControleurMenuPrincipal {
 			System.err.println("Erreur au chargement: " + ex);
 		}
 	}
+	
+	public void gestionGroupe(){
+		Stage gestionGroupe = (Stage) buttonGestionEtudiant.getScene().getWindow();
+		try {
+			// Localisation du fichier FXML.
+			final URL url = getClass().getClassLoader().getResource("vue/GestionGroupe.fxml");
+
+			// Création du loader.
+			final FXMLLoader fxmlLoader = new FXMLLoader(url);
+
+			// Chargement du FXML.
+			final AnchorPane root = (AnchorPane) fxmlLoader.load();
+
+			// Création de la scène.
+			final Scene scene = new Scene(root,785,554);
+			gestionGroupe.setScene(scene);
+			gestionGroupe.show();
+		} catch (IOException ex) {
+			System.err.println("Erreur au chargement: " + ex);
+		}
+	}
 }

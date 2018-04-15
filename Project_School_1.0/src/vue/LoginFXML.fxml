@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.ControllerAuthentification">
+   <children>
+      <Label layoutX="24.0" layoutY="14.0" text="DB Status" />
+      <Label fx:id="statutlabel" layoutX="126.0" layoutY="14.0" prefHeight="21.0" prefWidth="187.0" />
+      <TextField fx:id="logintextfield" layoutX="127.0" layoutY="66.0" promptText="username" />
+      <PasswordField fx:id="mdptextfield" layoutX="127.0" layoutY="137.0" promptText="password" />
+      <Label layoutX="39.0" layoutY="71.0" text="Identifiant" />
+      <Label layoutX="28.0" layoutY="142.0" text="Mot de passe" />
+      <ComboBox fx:id="combobox" layoutX="127.0" layoutY="199.0" prefHeight="31.0" prefWidth="187.0" promptText="Admin/Student" />
+      <Button fx:id="loginBoutton" layoutX="127.0" layoutY="249.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="187.0" text="Login" />
+      <Hyperlink fx:id="buttoncreercompte" layoutX="21.0" layoutY="307.0" onAction="#creercompte" prefHeight="23.0" prefWidth="112.0" text="Créer un compte" />
+   </children>
+</AnchorPane>

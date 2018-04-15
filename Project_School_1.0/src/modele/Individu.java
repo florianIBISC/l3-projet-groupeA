@@ -5,9 +5,7 @@ import java.time.LocalDate;
 public class Individu {
 	private String nom;
 	private String prenom;
-	private char genre;
 	private String adresse;
-	private String lieuNaissance;
 	private LocalDate datedenaissance;
 	private String numTel;
 	private String email;
@@ -17,9 +15,7 @@ public class Individu {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.genre = genre;
 		this.setAdresse(adresse);
-		this.lieuNaissance = lieuNaissance;
 		this.datedenaissance = datedenaissance;
 		this.numTel = numTel;
 		this.email = email;
@@ -37,18 +33,7 @@ public class Individu {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public char getGenre() {
-		return genre;
-	}
-	public void setGenre(char genre) {
-		this.genre = genre;
-	}
-	public String getLieuNaissance() {
-		return lieuNaissance;
-	}
-	public void setLieuNaissance(String lieuNaissance) {
-		this.lieuNaissance = lieuNaissance;
-	}
+
 	public LocalDate getDatedenaissance() {
 		return datedenaissance;
 	}

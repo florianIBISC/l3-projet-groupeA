@@ -23,7 +23,7 @@ public class Main extends Application{
 		
 		try {
 		      // Localisation du fichier FXML.
-		      final URL url = getClass().getClassLoader().getResource("vue/AuthentificationFXML.fxml");
+		      final URL url = getClass().getClassLoader().getResource("vue/LoginFXML.fxml");
 		      
 		      // Création du loader.
 		      final FXMLLoader fxmlLoader = new FXMLLoader(url);
