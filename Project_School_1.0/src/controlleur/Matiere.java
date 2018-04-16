@@ -1,4 +1,4 @@
-package modele;
+package controlleur;
 
 public enum Matiere {
 

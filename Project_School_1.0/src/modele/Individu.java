@@ -60,7 +60,4 @@ public class Individu {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	
-	
-	
 }

@@ -2,56 +2,64 @@ package modele;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Groupe {
 
 	private StringProperty idGroupe;
-	private ArrayList<Etudiant> listeEtudiant;
+	private ArrayList<Etudiant> listeEtudiant=new ArrayList<Etudiant>();
 	private StringProperty capacite;
 	private StringProperty matiere;
-
 	
-	/*
-	public Groupe(int idGroupe, ArrayList<Etudiant> listeEtudiant, int capacite, SessionSchool session,
-			Matiere[] matiere) {
+	
+	
+	public Groupe(String idGroupe, ArrayList<Etudiant> listeEtudiant, String capacite, 
+			String matiere) {
 		super();
-		this.idGroupe = idGroupe;
+		this.idGroupe = new SimpleStringProperty(idGroupe);
 		this.listeEtudiant = listeEtudiant;
-		this.capacite = capacite;
-		this.session = session;
-		this.matiere = matiere;
+		this.capacite = new SimpleStringProperty(capacite);
+		this.matiere = new SimpleStringProperty(matiere);
 	}
 	
-	public int getIdGroupe() {
+	public Groupe(String idGroupe, String capacite, 
+			String matiere) {
+		super();
+		this.idGroupe = new SimpleStringProperty(idGroupe);
+		this.capacite = new SimpleStringProperty(capacite);
+		this.matiere = new SimpleStringProperty(matiere);
+	}
+	
+	public String getIdGroupe() {
+		return idGroupe.get();
+	}
+	
+	public StringProperty getIdGroupeProperty() {
 		return idGroupe;
 	}
-	public void setIdGroupe(int idGroupe) {
+	
+	public void setIdGroupe(StringProperty idGroupe) {
 		this.idGroupe = idGroupe;
 	}
+
 	public ArrayList<Etudiant> getListeEtudiant() {
 		return listeEtudiant;
 	}
 	public void setListeEtudiant(ArrayList<Etudiant> listeEtudiant) {
 		this.listeEtudiant = listeEtudiant;
 	}
-	public int getCapacite() {
-		return capacite;
+	public String getCapacite() {
+		return capacite.get();
 	}
-	public void setCapacite(int capacite) {
+	public void setCapacite(StringProperty capacite) {
 		this.capacite = capacite;
 	}
-	public SessionSchool getSession() {
-		return session;
+	public String getMatiere() {
+		return matiere.get();
 	}
-	public void setSession(SessionSchool session) {
-		this.session = session;
-	}
-	public Matiere[] getMatiere() {
-		return matiere;
-	}
-	public void setMatiere(Matiere[] matiere) {
+	public void setMatiere(StringProperty matiere) {
 		this.matiere = matiere;
 	}
-	*/
+
 }

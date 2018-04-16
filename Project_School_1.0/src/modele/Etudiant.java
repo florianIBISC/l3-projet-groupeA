@@ -11,6 +11,7 @@ public class Etudiant {
 	private StringProperty telephone;
 	private StringProperty date;
 	private StringProperty matiere;
+	private StringProperty groupe;
 	
 	public Etudiant(String id, String prenom, String nom, String email,
 			String telephone, String date, String matiere) {
@@ -22,7 +23,22 @@ public class Etudiant {
 		this.telephone = new SimpleStringProperty(telephone);
 		this.date = new SimpleStringProperty(date);
 		this.matiere=new SimpleStringProperty(matiere);
+		this.groupe=new SimpleStringProperty("null");
 	}
+	
+	public Etudiant(String id, String prenom, String nom, String email,
+			String telephone, String date, String matiere, String groupe) {
+		super();
+		this.id = new SimpleStringProperty(id);
+		this.prenom = new SimpleStringProperty(prenom);
+		this.nom = new SimpleStringProperty(nom);
+		this.email = new SimpleStringProperty(email);
+		this.telephone = new SimpleStringProperty(telephone);
+		this.date = new SimpleStringProperty(date);
+		this.matiere=new SimpleStringProperty(matiere);
+		this.groupe=new SimpleStringProperty(groupe);
+	}
+
 
 	public StringProperty getIdProperty() {
 		return id;
@@ -102,6 +118,14 @@ public class Etudiant {
 	
 	public String getMatiere(){
 		return matiere.get();
+	}
+
+	public String getGroupe() {
+		return groupe.get();
+	}
+
+	public void setGroupe(StringProperty groupe) {
+		this.groupe = groupe;
 	}
 
 }

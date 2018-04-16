@@ -1,11 +1,10 @@
 package bd.controlleur;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
 import connexionBD.connexionDAOMySQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,15 +16,17 @@ public class ChargementDonnees {
 	private static ArrayList<Compte> compteChargés=new ArrayList<Compte>();
 	private static ArrayList<Agent> agentEnregistrés = new ArrayList<Agent>();
 	private static ObservableList<Etudiant> etudiantEnregistrés= FXCollections.observableArrayList();
+	private static ObservableList<Groupe> groupeEnregistrés= FXCollections.observableArrayList();
 	
 	public ChargementDonnees(){
 		try {
 			//On récupère une connexion à la BDD
-			Connection conn= (Connection) connexionDAOMySQL.getInstance();
+			Connection conn= connexionDAOMySQL.getInstance();
 			//On va récupérer les données de la BDD pour en faire de nouveaux objets
-			PreparedStatement state = (PreparedStatement) conn.prepareStatement("SELECT * FROM compte");
-			PreparedStatement state2 = (PreparedStatement) conn.prepareStatement("SELECT * FROM administrateur");
-			PreparedStatement state3= (PreparedStatement) conn.prepareStatement("SELECT * FROM etudiant");
+			PreparedStatement state =  conn.prepareStatement("SELECT * FROM compte");
+			PreparedStatement state2 = conn.prepareStatement("SELECT * FROM administrateur");
+			PreparedStatement state3= conn.prepareStatement("SELECT * FROM etudiant");
+			PreparedStatement state4= conn.prepareStatement("SELECT * FROM groupe");
 			//On éxécute les requêtes sql
 			ResultSet res = state.executeQuery();		
 			//On va récupérer tous les comptes de la base de données et les rentrer dans notre ArrayList
@@ -38,8 +39,6 @@ public class ChargementDonnees {
 				int numSecu = res.getInt("numSecu");
 				String passwd = res.getString("mdp");
 				Compte temp = new Compte(login,numSecu,passwd);
-				System.out.println(temp.getLogin()+"class");
-				System.out.println(temp.getMdp()+"class");
 				ChargementDonnees.getCompteChargés().add(temp);
 			}
 			
@@ -66,9 +65,16 @@ public class ChargementDonnees {
 			ResultSet res3=state3.executeQuery();
 			//on recupere tous les etudiants enregistrés dans la base de données
 			while(res3.next()) {
-				etudiantEnregistrés.add(new Etudiant(Integer.toString(res3.getInt(1)),res3.getString(2),res3.getString(3),res3.getString(4),"0"+res3.getString(5),res3.getString(6),res3.getString(7)));
+				etudiantEnregistrés.add(new Etudiant(Integer.toString(res3.getInt(1)),res3.getString(2),res3.getString(3),res3.getString(4),res3.getString(5),res3.getString(6),res3.getString(7),res3.getString(8)));
 
 			}
+			
+			//on récupere les groupe enregistrés
+			ResultSet res4=state4.executeQuery();
+			while(res4.next()){
+				groupeEnregistrés.add(new Groupe(Integer.toString(res4.getInt(1)),Integer.toString(res4.getInt(2)),res4.getString(3)));
+			}
+			
 
 			res.close();
 			res2.close();
@@ -76,14 +82,10 @@ public class ChargementDonnees {
 			state.close();
 			state2.close();
 			state3.close();
-			//conn.close();
 			}catch(Exception e){
 				System.out.print("erreur chargement de données");
 				e.printStackTrace();
 			}
-		for(int i=0;i<etudiantEnregistrés.size();i++){
-			System.out.println(etudiantEnregistrés.get(i).getNom()+" izi money ");
-		}
 		
 	}
 
@@ -116,6 +118,19 @@ public class ChargementDonnees {
 	public static void setEtudiantEnregistrés(ObservableList<Etudiant> etudiantEnregistrés) {
 		ChargementDonnees.etudiantEnregistrés = etudiantEnregistrés;
 	}
+
+
+	public static ObservableList<Groupe> getGroupeEnregistrés() {
+		return groupeEnregistrés;
+	}
+
+
+	public static void setGroupeEnregistrés(ObservableList<Groupe> groupeEnregistrés) {
+		ChargementDonnees.groupeEnregistrés = groupeEnregistrés;
+	}
+
+
+
 	
 	
 	

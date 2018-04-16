@@ -12,7 +12,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.stage.Stage;
 import modele.Compte;
 
@@ -48,6 +53,7 @@ public class ControllerAuthentification {
 		if(id_correct()) {
 			if(mdp_correct()) {
 				statutlabel.setText("Login + mdp correct");
+	
 				Stage menuPrincipal = new Stage();
 				try {
 					// Localisation du fichier FXML.
@@ -91,7 +97,7 @@ public class ControllerAuthentification {
 			// Localisation du fichier FXML.
 			final URL url = getClass().getClassLoader().getResource("vue/CreationCompte.fxml");
 
-			// CrÃ©ation du loader.
+			// Création du loader.
 			final FXMLLoader fxmlLoader = new FXMLLoader(url);
 
 			// Chargement du FXML.

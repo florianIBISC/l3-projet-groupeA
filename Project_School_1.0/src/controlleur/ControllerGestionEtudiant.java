@@ -1,25 +1,26 @@
 package controlleur;
 
+import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import bd.controlleur.ChargementDonnees;
 import bd.controlleur.EtudianBD;
-import connexionBD.connexionDAOMySQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import modele.Etudiant;
 
 public class ControllerGestionEtudiant implements Initializable {
@@ -57,8 +58,8 @@ public class ControllerGestionEtudiant implements Initializable {
 	private TableColumn<Etudiant,String> telephonecolumn;
 	@FXML
 	private TableColumn<Etudiant,String> datecolumn;
-	
-	private Connection conn;
+	@FXML 
+	private Button retour;
 	private ObservableList<Etudiant> data;
 	
 	@Override
@@ -67,10 +68,29 @@ public class ControllerGestionEtudiant implements Initializable {
 		
 	}
 	
+	public void retour(){
+		Stage menuPrincipal = (Stage) retour.getScene().getWindow();
+		try {
+			// Localisation du fichier FXML.
+			final URL url = getClass().getClassLoader().getResource("vue/MenuPrincipal.fxml");
+
+			// Création du loader.
+			final FXMLLoader fxmlLoader = new FXMLLoader(url);
+
+			// Chargement du FXML.
+			final AnchorPane root = (AnchorPane) fxmlLoader.load();
+
+			// Création de la scène.
+			final Scene scene = new Scene(root,785,554);
+			menuPrincipal.setScene(scene);
+			menuPrincipal.show();
+		} catch (IOException ex) {
+			System.err.println("Erreur au chargement: " + ex);
+		}
+	}
 	
 	@FXML
 	private void chargerDonnees(ActionEvent e) {
-		System.out.print("chargement donn�es");
 		try {
 			
 			this.data = FXCollections.observableArrayList();
@@ -96,25 +116,7 @@ public class ControllerGestionEtudiant implements Initializable {
 		Etudiant newEtudiant = new Etudiant(this.id.getText(),this.prenom.getText(),this.nom.getText(),this.email.getText(),this.telephone.getText(),this.date.getEditor().getText(),"matiere");
 		EtudianBD et= new EtudianBD();
 		et.ajoutEtudiant(newEtudiant);
-				/*String sql = "INSERT INTO etudiant (idEtudiant,nom,prenom,dateNaissance,email,numTel) VALUES (?,?,?,?,?,?)";
-		try {
-			Connection conn = connexionDAOMySQL.getInstance();
-			PreparedStatement state = conn.prepareStatement(sql);
-			state.setInt(1, Integer.parseInt(this.id.getText()));
-			state.setString(2, this.prenom.getText());
-			state.setString(3, this.nom.getText());
-			state.setString(4, this.email.getText());
-			state.setString(5, this.telephone.getText());
-			state.setString(6, this.date.getEditor().getText());
-			state.executeUpdate();
-			
-			state.close();
-			conn.close();
 
-			
-		}catch(SQLException ex) {
-			ex.printStackTrace();
-		}*/
 	}
 
 }
