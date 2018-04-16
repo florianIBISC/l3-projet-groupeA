@@ -27,7 +27,6 @@ public class EtudianBD {
 			state.executeUpdate();
 			
 			state.close();
-			conn.close();
 
 			
 		}catch(SQLException ex) {

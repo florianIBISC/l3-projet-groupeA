@@ -94,8 +94,11 @@ public class ControllerGestionEtudiant implements Initializable {
 		try {
 			
 			this.data = FXCollections.observableArrayList();
+			if(this.data.size()>0){
+				this.data.removeAll();
+			}
+			ChargementDonnees cd=new ChargementDonnees();
 			this.data=ChargementDonnees.getEtudiantEnregistrés();
-			System.out.print(this.data);
 		}catch(Exception ex) {
 			ex.printStackTrace();
 
@@ -106,7 +109,6 @@ public class ControllerGestionEtudiant implements Initializable {
 		this.emailcolumn.setCellValueFactory(new PropertyValueFactory<Etudiant,String>("email"));
 		this.telephonecolumn.setCellValueFactory(new PropertyValueFactory<Etudiant,String>("telephone"));
 		this.datecolumn.setCellValueFactory(new PropertyValueFactory<Etudiant,String>("date"));
-
 		this.etudiantTable.setItems(this.data);
 			
 	}

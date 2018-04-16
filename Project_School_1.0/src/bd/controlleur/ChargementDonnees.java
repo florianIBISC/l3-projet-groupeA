@@ -19,6 +19,9 @@ public class ChargementDonnees {
 	private static ObservableList<Groupe> groupeEnregistrés= FXCollections.observableArrayList();
 	
 	public ChargementDonnees(){
+		if(etudiantEnregistrés.size()>0){
+			etudiantEnregistrés.clear();
+		}
 		try {
 			//On récupère une connexion à la BDD
 			Connection conn= connexionDAOMySQL.getInstance();
